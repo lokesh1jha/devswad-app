@@ -1,8 +1,3 @@
-I'll create a comprehensive README file for the devswad-app project. This README will include information about the project, setup instructions, contribution guidelines, and other relevant details.
-
-Here's the README file for the devswad-app project:
-
-
 # DevSwaD App
 
 ## Table of Contents

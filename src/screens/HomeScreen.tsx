@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Button } from 'react-native-elements';
 import ProductList from '../components/ProductList';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
+import SearchBar from '../components/SearchBar';
 
 interface HomeScreenProps {
     navigation: NavigationProp<ParamListBase>;
@@ -21,6 +22,14 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
             buttonStyle={styles.shopButton}
             titleStyle={styles.shopButtonText}
           />
+          <SearchBar 
+          onSearch={(query) => {console.log(query);}}
+          />
+        </View>
+        
+        <View style={styles.featuredProducts}>
+          <Text style={styles.sectionTitle}>Featured Products</Text>
+          <ProductList featured={true} navigation={navigation} category={'All'}/>
         </View>
         <View style={styles.featuresContainer}>
           <View style={styles.featureItem}>
@@ -35,10 +44,6 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
             <Text style={styles.featureTitle}>Customer Satisfaction</Text>
             <Text style={styles.featureDescription}>Quality that brings a smile</Text>
           </View>
-        </View>
-        <View style={styles.featuredProducts}>
-          <Text style={styles.sectionTitle}>Featured Products</Text>
-          <ProductList featured={true} navigation={navigation} category={'All'}/>
         </View>
       </ScrollView>
     </SafeAreaView>

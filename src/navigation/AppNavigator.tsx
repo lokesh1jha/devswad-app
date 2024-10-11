@@ -149,14 +149,14 @@ export default function AppNavigator() {
 const styles = StyleSheet.create({
     safeArea: {
         flex: 1,
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+        paddingTop: Platform.OS === 'android' ? (StatusBar.currentHeight || 0) / 3 : 0,
     },
     header: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingHorizontal: 15,
-        paddingVertical: 10,
+        paddingHorizontal: 10,
+        paddingVertical: 2, // Reduced from 5 to 2
         backgroundColor: '#F5F5DC',
     },
     profileIcon: {

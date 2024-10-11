@@ -10,8 +10,8 @@ interface HomeScreenProps {
 }
 export default function HomeScreen({ navigation }: HomeScreenProps) {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
+    <SafeAreaView style={styles.container} edges={['bottom', 'left', 'right']}>
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.hero}>
           <Text style={styles.heroTitle}>Authentic Bihari Flavors</Text>
           <Text style={styles.heroSubtitle}>Delivered to You</Text>
@@ -19,6 +19,7 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
             title="Shop Now"
             onPress={() => navigation.navigate('Products')}
             buttonStyle={styles.shopButton}
+            titleStyle={styles.shopButtonText}
           />
         </View>
         <View style={styles.featuresContainer}>
@@ -49,6 +50,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5F5DC',
   },
+  scrollViewContent: {
+    flexGrow: 1,
+  },
   hero: {
     backgroundColor: '#2E8B57',
     padding: 20,
@@ -68,7 +72,13 @@ const styles = StyleSheet.create({
   },
   shopButton: {
     backgroundColor: '#F5F5DC',
+    borderRadius: 20,
+    paddingVertical: 10,
     paddingHorizontal: 30,
+    // Remove the color property from here
+  },
+  shopButtonText: { // Add this new style
+    color: 'black',
   },
   featuresContainer: {
     padding: 20,

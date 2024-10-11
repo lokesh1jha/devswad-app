@@ -16,7 +16,7 @@ export default function ProductsScreen({ navigation }: ProductsScreenProps) {
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
-                <ScrollView contentContainerStyle={styles.scrollViewContent}>
+                {/* <ScrollView contentContainerStyle={styles.scrollViewContent}> */}
                     <View style={styles.contentContainer}>
                         <ButtonGroup
                             onPress={(index) => setSelectedIndex(index)}
@@ -31,7 +31,7 @@ export default function ProductsScreen({ navigation }: ProductsScreenProps) {
                             featured={false}
                         />
                     </View>
-                </ScrollView>
+                {/* </ScrollView> */}
             </View>
         </SafeAreaView>
     );

@@ -2,6 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, StyleSheet, TextInput, TouchableOpacity, Platform, StatusBar } from 'react-native';
 
 import HomeScreen from '../screens/HomeScreen';
 import ProductDetailScreen from '../screens/ProductDetailScreen';
@@ -11,6 +13,8 @@ import CartScreen from '../screens/CartScreen';
 import CheckoutScreen from '../screens/CheckoutScreen';
 import ProductsScreen from '../screens/ProductsScreen';
 import AboutScreen from '../screens/AboutScreen';
+
+import SearchBar from '../components/SearchBar'; // Import the SearchBar component
 
 // Define the param list for the stack navigator
 type ProductsStackParamList = {
@@ -68,7 +72,18 @@ function OrdersStack() {
     );
 }
 
-export default function AppNavigator() {
+function HeaderComponent() {
+    return (
+        <View style={styles.header}>
+            <SearchBar onSearch={(query) => {console.log(query);}} />
+            <TouchableOpacity style={styles.profileIcon}>
+                <Ionicons name="person-circle-outline" size={30} color="#2E8B57" />
+            </TouchableOpacity>
+        </View>
+    );
+}
+
+function TabNavigator() {
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -91,6 +106,7 @@ export default function AppNavigator() {
                 },
                 tabBarActiveTintColor: '#2E8B57',
                 tabBarInactiveTintColor: 'gray',
+                header: () => <HeaderComponent />, // Add this line
             })}
         >
             <Tab.Screen 
@@ -121,3 +137,30 @@ export default function AppNavigator() {
         </Tab.Navigator>
     );
 }
+
+export default function AppNavigator() {
+    return (
+        <SafeAreaView style={styles.safeArea}>
+            <TabNavigator />
+        </SafeAreaView>
+    );
+}
+
+const styles = StyleSheet.create({
+    safeArea: {
+        flex: 1,
+        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    },
+    header: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        backgroundColor: '#F5F5DC',
+    },
+    profileIcon: {
+        padding: 5,
+    },
+    // ... (keep your existing styles)
+});

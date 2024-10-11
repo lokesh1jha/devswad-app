@@ -11,7 +11,7 @@ interface HomeScreenProps {
 export default function HomeScreen({ navigation }: HomeScreenProps) {
   return (
     <SafeAreaView style={styles.container} edges={['bottom', 'left', 'right']}>
-      <View style={styles.scrollViewContent}>
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.hero}>
           <Text style={styles.heroTitle}>Authentic Bihari Flavors</Text>
           <Text style={styles.heroSubtitle}>Delivered to You</Text>
@@ -40,7 +40,7 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
           <Text style={styles.sectionTitle}>Featured Products</Text>
           <ProductList featured={true} navigation={navigation} category={'All'}/>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }

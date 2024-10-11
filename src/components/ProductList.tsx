@@ -15,13 +15,15 @@ export default function ProductList({ featured, category, navigation }: ProductL
     const products = getProducts({ featured, category });
 
     return (
-        <FlatList
-            data={products}
-            renderItem={({ item }) => <ProductCard product={item} navigation={navigation} />}
-            keyExtractor={(item) => item.id}
-            numColumns={2}
-            columnWrapperStyle={styles.row}
-        />
+        <View style={styles.container}>
+            <FlatList
+                data={products}
+                renderItem={({ item }) => <ProductCard product={item} navigation={navigation} />}
+                keyExtractor={(item) => item.id.toString()}
+                numColumns={2}
+                columnWrapperStyle={styles.row}
+            />
+        </View>
     );
 }
 
@@ -29,5 +31,8 @@ const styles = StyleSheet.create({
     row: {
         flex: 1,
         justifyContent: 'space-around',
+    },
+    container: {
+        // Add any styles needed for the container
     },
 });

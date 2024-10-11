@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
-
 import HomeScreen from '../screens/HomeScreen';
 import ProductDetailScreen from '../screens/ProductDetailScreen';
 import OrdersScreen from '../screens/OrdersScreen';
@@ -13,14 +12,36 @@ import CheckoutScreen from '../screens/CheckoutScreen';
 import ProductsScreen from '../screens/ProductsScreen';
 import AboutScreen from '../screens/AboutScreen';
 
+// Define the param list for the stack navigator
+type ProductsStackParamList = {
+  Cart: undefined;
+  Checkout: undefined;
+  ProductsScreen: undefined;
+  ProductDetail: { productId: string };
+};
+
+type OrdersStackParamList = {
+  OrdersList: undefined;
+  OrderDetail: { orderId: string };
+};
+
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<ProductsStackParamList>();
+const OrderStack = createStackNavigator<OrdersStackParamList>();
 
 function ProductsStack() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="ProductsList" component={ProductsScreen} options={{ title: 'Products' }} />
-            <Stack.Screen name="ProductDetail" component={ProductDetailScreen} options={{ title: 'Product Details' }} />
+            <Stack.Screen 
+                name="ProductsScreen" 
+                component={ProductsScreen} 
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen 
+                name="ProductDetail" 
+                component={ProductDetailScreen} 
+                options={{ title: 'Product Details' }}
+            />
         </Stack.Navigator>
     );
 }
@@ -28,18 +49,22 @@ function ProductsStack() {
 function CartStack() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="CartList" component={CartScreen} options={{ title: 'Cart' }} />
-            <Stack.Screen name="Checkout" component={CheckoutScreen} options={{ title: 'Checkout' }} />
+            <Stack.Screen name="Cart" component={CartScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="Checkout" component={CheckoutScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
     );
 }
 
 function OrdersStack() {
     return (
-        <Stack.Navigator>
-            <Stack.Screen name="OrdersList" component={OrdersScreen} options={{ title: 'Orders' }} />
-            <Stack.Screen name="OrderDetail" component={OrderDetailScreen} options={{ title: 'Order Details' }} />
-        </Stack.Navigator>
+        <OrderStack.Navigator>
+            <OrderStack.Screen name="OrdersList" component={OrdersScreen} options={{ headerShown: false }} />
+            <OrderStack.Screen 
+                name="OrderDetail" 
+                component={OrderDetailScreen} 
+                options={{ headerShown: false }}
+            />
+        </OrderStack.Navigator>
     );
 }
 
@@ -63,15 +88,36 @@ export default function AppNavigator() {
                     }
 
                     return <Ionicons name={iconName as any} size={size} color={color} />;
-                }, tabBarActiveTintColor: '#2E8B57',
+                },
+                tabBarActiveTintColor: '#2E8B57',
                 tabBarInactiveTintColor: 'gray',
             })}
         >
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Products" component={ProductsStack} />
-            <Tab.Screen name="Cart" component={CartStack} />
-            <Tab.Screen name="Orders" component={OrdersStack} />
-            <Tab.Screen name="More" component={AboutScreen} />
+            <Tab.Screen 
+                name="Home" 
+                component={HomeScreen} 
+                options={{ headerShown: false }}
+            />
+            <Tab.Screen 
+                name="Products" 
+                component={ProductsStack}
+                options={{ headerShown: false }}
+            />
+            <Tab.Screen 
+                name="Cart" 
+                component={CartStack} 
+                options={{ headerShown: false }}
+            />
+            <Tab.Screen 
+                name="Orders" 
+                component={OrdersStack} 
+                options={{ headerShown: false }}
+            />
+            <Tab.Screen 
+                name="More" 
+                component={AboutScreen} 
+                options={{ headerShown: false }}
+            />
         </Tab.Navigator>
     );
 }

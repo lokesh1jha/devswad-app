@@ -21,11 +21,16 @@ export default function CartScreen({ navigation }: CheckoutScreenProps) {
           <FlatList
             data={cart}
             renderItem={({ item }) => (
-              <CartItem
-                item={item}
-                updateQuantity={updateQuantity}
-                removeFromCart={removeFromCart}
-              />
+              <View>
+                <Text>{item.name}</Text>
+                <Text>{item.price}</Text>
+                <Text>{item.quantity}</Text>
+              </View>
+              // <CartItem
+              //   item={item}
+              //   updateQuantity={updateQuantity}
+              //   removeFromCart={removeFromCart}
+              // />
             )}
             keyExtractor={(item) => item.id}
           />

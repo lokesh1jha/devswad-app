@@ -5,6 +5,14 @@ const products: Product[] = [
   { id: '1', name: 'Pure Bihari Chana Sattu', price: '₹325.00', image: 'https://example.com/sattu.jpg', category: 'Sattu', description: 'High-protein sattu made from roasted gram flour.' },
   { id: '2', name: 'Organic Basmati Rice', price: '₹450.00', image: 'https://example.com/rice.jpg', category: 'Rice', description: 'Premium long-grain basmati rice from Bihar.' },
   { id: '3', name: 'Traditional Litti Chokha Mix', price: '₹275.00', image: 'https://example.com/litti-chokha.jpg', category: 'Specialty', description: 'Authentic mix for making Bihari Litti Chokha.' },
+  { id: '4', name: 'Organic Wheat Flour', price: '₹250.00', image: 'https://example.com/wheat-flour.jpg', category: 'Flour', description: 'High-quality organic wheat flour for various culinary uses.' },
+  { id: '5', name: 'Organic Wheat Flour', price: '₹250.00', image: 'https://example.com/wheat-flour.jpg', category: 'Flour', description: 'High-quality organic wheat flour for various culinary uses.' },
+  { id: '6', name: 'Organic Wheat Flour', price: '₹250.00', image: 'https://example.com/wheat-flour.jpg', category: 'Flour', description: 'High-quality organic wheat flour for various culinary uses.' },
+  { id: '7', name: 'Organic Wheat Flour', price: '₹250.00', image: 'https://example.com/wheat-flour.jpg', category: 'Flour', description: 'High-quality organic wheat flour for various culinary uses.' },
+  { id: '8', name: 'Organic Wheat Flour', price: '₹250.00', image: 'https://example.com/wheat-flour.jpg', category: 'Flour', description: 'High-quality organic wheat flour for various culinary uses.' },
+  { id: '9', name: 'Organic Wheat Flour', price: '₹250.00', image: 'https://example.com/wheat-flour.jpg', category: 'Flour', description: 'High-quality organic wheat flour for various culinary uses.' },
+  { id: '10', name: 'Organic Wheat Flour', price: '₹250.00', image: 'https://example.com/wheat-flour.jpg', category: 'Flour', description: 'High-quality organic wheat flour for various culinary uses.' },
+  
 ];
 
 const orders: Order[] = [

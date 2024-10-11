@@ -36,7 +36,7 @@ export default function OrdersScreen({ navigation }: OrderScreenProps) {
         <Text style={styles.emptyOrders}>You have no orders yet</Text>
       ) : (
         <FlatList
-          data={orders}
+          data={orders.map(order => ({...order, total: Number(order.total)}))}
           renderItem={renderOrderItem}
           keyExtractor={(item) => item.id}
         />

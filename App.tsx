@@ -4,8 +4,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import AppNavigator from './src/navigation/AppNavigator';
 import { LogBox } from 'react-native';
 import { useState, useEffect } from 'react'
-// import Account from './components/Account'
-// import { View } from 'react-native'
 import { Session } from '@supabase/supabase-js'
 import { supabase } from './src/lib/supabase';
 import Auth from './src/components/Auth';

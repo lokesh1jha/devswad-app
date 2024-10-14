@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     safeArea: {
         flex: 1,
         backgroundColor: '#F5F5DC',
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+        // paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     },
     container: {
         flex: 1,
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         flexGrow: 1,
     },
     contentContainer: {
-        paddingTop: 20,
+        // paddingTop: 20,
     },
     buttonGroupContainer: {
         marginBottom: 10,

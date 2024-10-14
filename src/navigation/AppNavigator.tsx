@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { View, StyleSheet, TextInput, TouchableOpacity, Platform, StatusBar } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
 import HomeScreen from '../screens/HomeScreen';
 import ProductDetailScreen from '../screens/ProductDetailScreen';
@@ -148,7 +148,8 @@ export default function AppNavigator() {
 const styles = StyleSheet.create({
     safeArea: {
         flex: 1,
-        paddingTop: Platform.OS === 'android' ? (StatusBar.currentHeight || 0) / 3 : 0,
+        backgroundColor: '#F5F5DC',
+        // paddingTop: Platform.OS === 'android' ? (StatusBar.currentHeight || 0) / 3 : 0,
     },
     header: {
         flexDirection: 'row',

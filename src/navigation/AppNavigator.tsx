@@ -12,7 +12,7 @@ import OrderDetailScreen from '../screens/OrderDetailScreen';
 import CartScreen from '../screens/CartScreen';
 import CheckoutScreen from '../screens/CheckoutScreen';
 import ProductsScreen from '../screens/ProductsScreen';
-import AboutScreen from '../screens/AboutScreen';
+import AboutScreen from '../screens/ProfileScreen';
 
 import SearchBar from '../components/SearchBar'; // Import the SearchBar component
 
@@ -82,7 +82,6 @@ function HeaderComponent() {
         </View>
     );
 }
-
 function TabNavigator() {
     return (
         <Tab.Navigator
@@ -98,8 +97,8 @@ function TabNavigator() {
                         iconName = focused ? 'cart' : 'cart-outline';
                     } else if (route.name === 'Orders') {
                         iconName = focused ? 'receipt' : 'receipt-outline';
-                    } else if (route.name === 'More') {
-                        iconName = focused ? 'menu' : 'menu-outline';
+                    } else if (route.name === 'Profile') {
+                        iconName = focused ? 'person' : 'person-outline';
                     }
 
                     return <Ionicons name={iconName as any} size={size} color={color} />;
@@ -130,7 +129,7 @@ function TabNavigator() {
                 options={{ headerShown: false }}
             />
             <Tab.Screen 
-                name="More" 
+                name="Profile" 
                 component={AboutScreen} 
                 options={{ headerShown: false }}
             />
